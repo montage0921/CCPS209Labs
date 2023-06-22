@@ -77,7 +77,38 @@ public class P2J2 {
     }
 
     public static int recaman(int n){
-        throw new UnsupportedOperationException();
+
+        if(n==1) return 1;
+
+        boolean[] recamanBoolean=new boolean[n*10];
+        int[] recamanArray=new int[n];
+
+        recamanArray[0]=1;
+        recamanBoolean[1]=true;
+
+
+
+        for(int i=1;i<n;i++){
+            int recamanResult=recamanArray[i-1]-(i+1);
+            if(recamanResult>0&&recamanBoolean[recamanResult]==false){
+                recamanArray[i]=recamanResult;
+                recamanBoolean[recamanResult]=true;
+            } else{
+                recamanResult=recamanArray[i-1]+i+1;
+                recamanArray[i]=recamanResult;
+                recamanBoolean[recamanResult]=true;
+
+            }
+
+
+
+        }
+
+
+
+
+        return recamanArray[recamanArray.length-1];
+
 
     }
 
