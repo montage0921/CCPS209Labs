@@ -1,6 +1,8 @@
 public class MainInterface {
     public static void main(String[] args){
-        P2J2.recaman(8);
+        int[] coefficients={2,3,4};
+        Polynomial testPolynomial=new Polynomial(coefficients);
+        System.out.println("hello");
 
     }
 }

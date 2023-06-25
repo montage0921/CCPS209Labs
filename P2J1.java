@@ -7,6 +7,9 @@ public class P2J1 {
     public static long fallingPower(int n, int k){
         long result=1;
 
+
+
+
         for(int i=n;i>=n-k+1;i--){
             result*=i;
         }
