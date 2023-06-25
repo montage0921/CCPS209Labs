@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+import static org.junit.Assert.assertTrue;
+
 public class Polynomial {
     private final int[] coefficients;
     public Polynomial(int[] coefficients){
@@ -78,13 +80,61 @@ public class Polynomial {
 
     }
 
-    public static void main(String[] args){
-        int[] coefficients={0,0,0,0,0,0};
-        Polynomial testPolynomial=new Polynomial(coefficients);
-        testPolynomial.toString();
+    public Polynomial add(Polynomial other){
 
-        System.out.println(testPolynomial.getDegree());
-        System.out.println(testPolynomial.evaluate(0));
+        int thisLength=this.getDegree()+1;
+        int otherLength=other.getDegree()+1;
+        int newLength;
+
+        if(thisLength>otherLength) newLength=thisLength;
+        else newLength=otherLength;
+
+        int[] newPolynomial=new int[newLength];
+
+        for(int i=0;i<newLength;i++){
+
+            newPolynomial[i]=this.getCoefficient(i)+other.getCoefficient(i);
+        }
+
+        return new Polynomial(newPolynomial);
+    }
+
+    public Polynomial multiply(Polynomial other) {
+        int degree = this.getDegree() + other.getDegree();
+        int[] coefficients = new int[degree + 1];
+
+        for (int i = 0; i <= this.getDegree(); i++) {
+            for (int j = 0; j <= other.getDegree(); j++) {
+                int product = this.getCoefficient(i) * other.getCoefficient(j);
+                int combinedDegree = i + j;
+                coefficients[combinedDegree] += product;
+            }
+        }
+
+        return new Polynomial(coefficients);
+    }
+
+
+    public static void main(String[] args){
+        int[] c1 = {7, -5, 3}; // 3x^2 - 5x + 7
+        int[] c2 = {6, 0, 0, -4}; // -4x^3 + 6
+        Polynomial p1 = new Polynomial(c1);
+        p1.toString();
+        Polynomial p2 = new Polynomial(c2);
+        p2.toString();
+        // Product of two polynomials must be equal both ways.
+        Polynomial p3 = p1.multiply(p2);
+        p3.toString();
+        Polynomial p4 = p2.multiply(p1);
+
+        // The expected correct result of multiplying p1 and p2.
+        int[] c5 = {42, -30, 18, -28, 20, -12};
+        Polynomial p5 = new Polynomial(c5);
+
+
+
+
+
 
 
     }
