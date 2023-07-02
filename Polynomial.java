@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertTrue;
 
-public class Polynomial {
+public class Polynomial implements Comparable<Polynomial> {
     private final int[] coefficients;
     public Polynomial(int[] coefficients){
         //create a defensive copy to make the Polynomial class immutuable;
@@ -114,6 +114,56 @@ public class Polynomial {
         return new Polynomial(coefficients);
     }
 
+    @Override public boolean equals(Object other){
+        //if other's is a null object, return false;
+        if(other==null) return false;
+
+        // if they are from two different classes, return false;
+        if(this.getClass()!=other.getClass()) return false;
+
+        Polynomial otherPolynomial=(Polynomial) other;
+        if(this.compareTo(otherPolynomial)==0&&this.hashCode()==otherPolynomial.hashCode()) return true;
+
+        return false;
+
+    }
+    @Override public int hashCode(){
+        int count=this.getDegree();
+
+        while(count>=0&&this.coefficients[count]==0){
+            count--;
+        }
+
+
+
+        int[] copiedCoefficient=Arrays.copyOf(this.coefficients,count+1);
+        return Arrays.hashCode(copiedCoefficient);
+
+
+    }
+
+    public int compareTo(Polynomial other){
+        if(this.getDegree()>other.getDegree()){
+            return 1;
+        } else if(this.getDegree()<other.getDegree()){
+            return -1;
+        }
+
+        int count=this.getDegree();
+        while(count>=0){
+            if(this.getCoefficient(count)>other.getCoefficient((count))) return 1;
+            else if(this.getCoefficient(count)<other.getCoefficient((count))) return -1;
+            else count--;
+
+            }
+
+            return 0;
+        }
+
+
+
+
+
 
     public static void main(String[] args){
         int[] c1 = {7, -5, 3}; // 3x^2 - 5x + 7
@@ -130,6 +180,8 @@ public class Polynomial {
         // The expected correct result of multiplying p1 and p2.
         int[] c5 = {42, -30, 18, -28, 20, -12};
         Polynomial p5 = new Polynomial(c5);
+
+        p1.hashCode();
 
 
 
