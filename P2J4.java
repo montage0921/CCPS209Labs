@@ -157,9 +157,7 @@ public class P2J4 {
 
            }
 
-        if (n != 1) {
-            subPrimeFactors.add(n);
-        }
+
 
         return subPrimeFactors;
 
