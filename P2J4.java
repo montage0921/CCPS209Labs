@@ -98,25 +98,80 @@ public class P2J4 {
     }
 
     public static List<Integer> factorFactorial(int n){
-        throw new UnsupportedOperationException();
+
+        ArrayList<Integer> primeFactors=new ArrayList<>();
+        ArrayList<Integer> primeList=new ArrayList<>();
+
+        //if n=1 or n=0, return empty List
+        if(n==1||n==0) return primeFactors;
+
+        //example: n=4;
+        for(int i=2;i<=n;i++){
+            if(isPrime(i)) {
+                primeFactors.add(i);
+                primeList.add(i);
+
+
+            }
+            else {
+                System.out.println("all prime: "+primeList);
+                ArrayList<Integer> subPrimeFactors=getPrimeFactor(i,primeList);
+
+                for(int j=0;j<subPrimeFactors.size();j++){
+
+                    primeFactors.add(subPrimeFactors.get(j));
+
+                }
+            }
+
+
+        }
+
+
+        Collections.sort(primeFactors);
+        System.out.println("result:"+primeFactors);
+
+        return primeFactors;
     }
+
+    private static boolean isPrime(int num) {
+        if (num < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        } return true;
+    }
+
+    private static ArrayList<Integer> getPrimeFactor(int n, List<Integer> primeList){
+
+        ArrayList<Integer> subPrimeFactors = new ArrayList<>();
+        for (int i = 0; i < primeList.size(); i++) {
+            int curPrime = primeList.get(i);
+            while (n % curPrime == 0) {
+                subPrimeFactors.add(curPrime);
+                n /= curPrime;
+            }
+
+           }
+
+        if (n != 1) {
+            subPrimeFactors.add(n);
+        }
+
+        return subPrimeFactors;
+
+    }
+
+
+
 
     public static void main(String[] args){
 
 
-        ArrayList<Integer> items=new ArrayList<>();
-        items.add(4);
-        items.add(99999);
-        items.add(2);
-        items.add(2);
-        items.add(99999);
-        items.add(4);
-        items.add(4);
-        items.add(4);
-
-        System.out.println(items);
-
-        P2J4.sortByElementFrequency(items);
+       P2J4.factorFactorial(9);
 
 
 
