@@ -2,19 +2,20 @@ import java.util.List;
 import java.math.BigInteger;
 import java.util.ArrayList;
 public class P2J5 {
-    private static List<BigInteger> fibs = new ArrayList<>();
-    static { fibs.add(BigInteger.ONE); fibs.add(BigInteger.ONE); }
+
 
 
 
     public static List<BigInteger> fibonacciSum(BigInteger n){
+
+        List<BigInteger> fibs = new ArrayList<>();
+        fibs.add(BigInteger.ONE); fibs.add(BigInteger.ONE);
+
         List<BigInteger> result=new ArrayList<>();
         BigInteger zero=new BigInteger("0");
 
-        BigInteger largestFibs=findLargestFibs(n);
+        BigInteger largestFibs=findLargestFibs(fibs,n);
         result.add(largestFibs);
-
-
 
 
         if(n.subtract(largestFibs).compareTo(zero)==0) {
@@ -25,7 +26,7 @@ public class P2J5 {
         while(n.compareTo(zero)==1){
             n=n.subtract(largestFibs); //55
 
-            largestFibs=findLargestFibs(n); //55
+            largestFibs=findLargestFibs(fibs,n); //55
 
             result.add(largestFibs);
 
@@ -37,10 +38,7 @@ public class P2J5 {
 
         return result;
     }
-
-
-
-    private static BigInteger findLargestFibs(BigInteger n){
+    private static BigInteger findLargestFibs(List<BigInteger> fibs,BigInteger n){
 
         int firstIndex=0;
         int secondIndex=1;
@@ -90,11 +88,6 @@ public class P2J5 {
             digits++;
         }
     }
-
-
-
-
-
 
 
     public static void main(String[] args){
