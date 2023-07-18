@@ -72,16 +72,4 @@ public class EgyptianFractions {
        return result;
     }
 
-    public static void main(String[] args){
-        Fraction num=new Fraction(16,27);
-
-        EgyptianFractions.splitting(num);
-
-    }
-
-
-
-
-
-
 }

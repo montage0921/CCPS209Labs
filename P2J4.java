@@ -93,8 +93,6 @@ public class P2J4 {
 
         // Sort the items using Collections.sort and the custom comparator
         Collections.sort(items, new FrequencyComparator());
-        System.out.println(items);
-
     }
 
     public static List<Integer> factorFactorial(int n){
@@ -114,7 +112,6 @@ public class P2J4 {
 
             }
             else {
-                System.out.println("all prime: "+primeList);
                 ArrayList<Integer> subPrimeFactors=getPrimeFactor(i,primeList);
 
                 for(int j=0;j<subPrimeFactors.size();j++){
@@ -126,11 +123,7 @@ public class P2J4 {
 
 
         }
-
-
         Collections.sort(primeFactors);
-        System.out.println("result:"+primeFactors);
-
         return primeFactors;
     }
 
@@ -156,29 +149,7 @@ public class P2J4 {
             }
 
            }
-
-
-
         return subPrimeFactors;
-
     }
-
-
-
-
-    public static void main(String[] args){
-
-
-       P2J4.factorFactorial(9);
-
-
-
-
-    }
-
-
-
-
-
 
 }

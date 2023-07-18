@@ -42,8 +42,4 @@ public class P2J9 {
         return res;
     }
 
-    public static void main(String[] args){
-        P2J9.subtractSquare(10);
-
-    }
 }

@@ -32,7 +32,6 @@ public class Polynomial implements Comparable<Polynomial> {
         }
 
         String polynomialString=polynomialStringBuilder.toString();
-        System.out.println(polynomialStringBuilder);
 
         return polynomialString;
     }
@@ -58,8 +57,6 @@ public class Polynomial implements Comparable<Polynomial> {
         if(k>coefficients.length-1||k<0) return 0;
 
         return coefficients[k];
-
-
     }
 
     public long evaluate(int x){
@@ -134,12 +131,8 @@ public class Polynomial implements Comparable<Polynomial> {
             count--;
         }
 
-
-
         int[] copiedCoefficient=Arrays.copyOf(this.coefficients,count+1);
         return Arrays.hashCode(copiedCoefficient);
-
-
     }
 
     public int compareTo(Polynomial other){
@@ -159,39 +152,5 @@ public class Polynomial implements Comparable<Polynomial> {
 
             return 0;
         }
-
-
-
-
-
-
-    public static void main(String[] args){
-        int[] c1 = {7, -5, 3}; // 3x^2 - 5x + 7
-        int[] c2 = {6, 0, 0, -4}; // -4x^3 + 6
-        Polynomial p1 = new Polynomial(c1);
-        p1.toString();
-        Polynomial p2 = new Polynomial(c2);
-        p2.toString();
-        // Product of two polynomials must be equal both ways.
-        Polynomial p3 = p1.multiply(p2);
-        p3.toString();
-        Polynomial p4 = p2.multiply(p1);
-
-        // The expected correct result of multiplying p1 and p2.
-        int[] c5 = {42, -30, 18, -28, 20, -12};
-        Polynomial p5 = new Polynomial(c5);
-
-        p1.hashCode();
-
-
-
-
-
-
-
-    }
-
-
-
 
 }

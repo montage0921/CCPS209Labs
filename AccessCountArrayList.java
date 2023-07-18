@@ -23,6 +23,4 @@ public class AccessCountArrayList<E> extends ArrayList<E> {
         this.count=0;
     }
 
-
-
 }

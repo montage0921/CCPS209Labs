@@ -3,9 +3,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 public class P2J5 {
 
-
-
-
     public static List<BigInteger> fibonacciSum(BigInteger n){
 
         List<BigInteger> fibs = new ArrayList<>();
@@ -33,8 +30,6 @@ public class P2J5 {
             if(n.subtract(largestFibs).equals(zero)) break;
 
         }
-
-
 
         return result;
     }
@@ -66,13 +61,6 @@ public class P2J5 {
         return fibs.get(fibs.size()-1);
     }
 
-
-
-
-
-
-
-
     public static BigInteger sevenZero(int n) {
         BigInteger N = BigInteger.valueOf(n);
         BigInteger ten = BigInteger.valueOf(10);
@@ -89,9 +77,4 @@ public class P2J5 {
         }
     }
 
-
-    public static void main(String[] args){
-        BigInteger num=BigInteger.valueOf(21);
-        System.out.println(P2J5.fibonacciSum(num));
-    }
 }

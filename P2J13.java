@@ -65,12 +65,7 @@ public class P2J13 {
            }
        }
 
-
-        System.out.println(result);
        return result.toString();
     }
 
-    public static void main(String[] args){
-        P2J13.reverseSubstringsBetweenParentheses("HED(C(LAB))B");
-    }
 }

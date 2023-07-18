@@ -6,14 +6,9 @@ import java.sql.SQLOutput;
 public class P2J1 {
     public static long fallingPower(int n, int k){
         long result=1;
-
-
-
-
         for(int i=n;i>=n-k+1;i--){
             result*=i;
         }
-
         return result;
     }
 
@@ -37,10 +32,7 @@ public class P2J1 {
             }
         }
 
-
-
         return resultArr;
-
     }
 
     public static int[][] createZigZag(int rows, int cols, int start){

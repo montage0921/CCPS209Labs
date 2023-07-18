@@ -74,12 +74,7 @@ public class P2J3 {
                 vowels.append(character);
             }
         }
-
-        System.out.println(indexArr);
-
         vowels.reverse();
-        System.out.println(vowels);
-
         for(int j=0;j<indexArr.size();j++){
             char vowelAtHere=vowels.charAt(j);
             int positionToBeReplaced=indexArr.get(j);
@@ -92,19 +87,10 @@ public class P2J3 {
 
             textSB.setCharAt(positionToBeReplaced,vowelAtHere);
 
-
         }
 
         text=textSB.toString();
 
-
-
         return text;
     }
-
-    public static void main(String[] args){
-        P2J3.reverseVowels("Uncle Sente lives in Russia");
-
-    }
-
 }

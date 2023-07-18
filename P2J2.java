@@ -32,14 +32,11 @@ public class P2J2 {
                 uniqueStrBuilder.append(currentChar);
             }
 
-
         }
 
         String uniqueStr=uniqueStrBuilder.toString();
 
-
         return uniqueStr;
-
     }
 
     public static int countSafeSquaresRooks(int n, boolean[][] rooks){
@@ -68,12 +65,7 @@ public class P2J2 {
             }
         }
 
-//        for(int i=0;i<safeRows.length;i++){
-//            if(safeCols[i]==false) safePlaceCounter++;
-//        }
-
         return safePlaceCounter;
-
     }
 
     public static int recaman(int n){
@@ -86,8 +78,6 @@ public class P2J2 {
         recamanArray[0]=1;
         recamanBoolean[1]=true;
 
-
-
         for(int i=1;i<n;i++){
             int recamanResult=recamanArray[i-1]-(i+1);
             if(recamanResult>0&&recamanBoolean[recamanResult]==false){
@@ -97,20 +87,9 @@ public class P2J2 {
                 recamanResult=recamanArray[i-1]+i+1;
                 recamanArray[i]=recamanResult;
                 recamanBoolean[recamanResult]=true;
-
             }
-
-
-
         }
-
-
-
-
         return recamanArray[recamanArray.length-1];
 
-
     }
-
-
 }

@@ -39,11 +39,5 @@ public class WordCount extends FileProcessor<List<Integer>> {
         return countList;
     }
 
-    public static void main(String args[]){
-        WordCount wc=new WordCount();
-
-    }
-
-
 }
 
